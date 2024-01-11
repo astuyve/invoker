@@ -131,7 +131,7 @@ fn invoke(
     writeln!(canonical_request, "x-amz-content-sha256:{payload_hash}")?;
     writeln!(canonical_request, "x-amz-date:{aws_datetime}")?;
     writeln!(canonical_request, "x-amz-invocation-type:RequestResponse")?;
-    writeln!(canonical_request, "x-amz-log-type:Tail")?;
+    writeln!(canonical_request, "x-amz-log-type:None")?;
     writeln!(canonical_request, "x-amz-security-token:{session_token}")?;
     writeln!(canonical_request)?;
     writeln!(canonical_request, "{signed_headers}")?;
@@ -183,7 +183,7 @@ fn invoke(
         //
         // Invoke parameters
         .header("X-Amz-Invocation-Type", "RequestResponse")
-        .header("X-Amz-Log-Type", "Tail")
+        .header("X-Amz-Log-Type", "None")
         // .header("X-Amz-Client-Context", "a")
         //
         // Other Required Parameters
